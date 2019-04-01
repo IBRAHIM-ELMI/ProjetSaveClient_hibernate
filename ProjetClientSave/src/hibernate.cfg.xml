@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.url">jdbc:postgresql://localhost/ClientSave</property>
+		<property name="connection.username">postgres</property>
+		<property name="connection.password">12345</property>
+		<property name="connection.driver_class">org.postgresql.Driver</property>
+		<property name="dialect"> org.hibernate.dialect.PostgreSQLDialect</property>
+		<property name="hibernate.archive.autodetection">class</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		<property name="hbm2ddl.auto">update</property>
+		<!-- without below table was not created -->
+		<property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+		<property name="current_session_context_class">thread</property>
+		<!-- mapping files -->
+		<!-- <mapping resource="hibernate.hbm.xml"/> -->
+		<!-- Gerer la connexion à la session -->
+		<!-- <property name="hibernate.c3p0.min_size">1</property>
+		<property name="hibernate.c3p0.max_size">100</property> -->
+		<!-- <property name="hibernate.c3p0.timeout">0</property> -->
+		<mapping class="youssouf.Client" />
+		<mapping class="youssouf.Adresse" />
+		<mapping class="youssouf.Facture" />
+
+	</session-factory>
+</hibernate-configuration>
